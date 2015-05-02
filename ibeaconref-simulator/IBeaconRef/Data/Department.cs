@@ -1,14 +1,30 @@
-﻿using System;
+﻿//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using IBeaconRef.EventHub;
 
-namespace ibaeconref_simulator
+namespace IBeaconRef.Data
 {
+    /// <summary>
+    /// Implements the logic of departments, managing Customers waiting in queues and delivering them goods
+    /// </summary>
     class Department
     {
-        int m_name = -1;
+        public int m_name { get; } = -1;
         List<Customer> m_waitingLine = new List<Customer>();
         static Random m_glitch = new Random();
         Boolean m_stalling = false;
@@ -89,6 +105,7 @@ namespace ibaeconref_simulator
         public void CustomerEnters(Customer customer)
         {
             m_waitingLine.Add(customer);
+            EventHubHelper.GetInstance().SendLeaveDepartment(customer, this);
         }
 
     }

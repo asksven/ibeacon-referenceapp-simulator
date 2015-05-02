@@ -52,11 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Store.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IBeaconRef\EventHub\AzureConstants.cs" />
+    <Compile Include="IBeaconRef\EventHub\EventHubHelper.cs" />
+    <Compile Include="IBeaconRef\Constants.cs" />
+    <Compile Include="IBeaconRef\Data\Department.cs" />
+    <Compile Include="IBeaconRef\Simulator\Store.cs" />
+    <Compile Include="IBeaconRef\Data\Customer.cs" />
+    <Compile Include="IBeaconRef\Simulator\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +67,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

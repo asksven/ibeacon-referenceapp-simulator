@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using IBeaconRef.Data;
+using IBeaconRef.EventHub;
 
-namespace ibaeconref_simulator
+namespace IBeaconRef.Simulator
 {
     class Store
     {
@@ -38,6 +38,7 @@ namespace ibaeconref_simulator
                 if (comingOutofLine != null)
                 {
                     enRoute.Add(comingOutofLine);
+                    EventHubHelper.GetInstance().SendLeaveDepartment(comingOutofLine, m_departments[i]);
                 }
             }
 
