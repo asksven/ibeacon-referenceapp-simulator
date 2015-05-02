@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using IBeaconRef.Data;
 
 namespace IBeaconRef.Simulator
@@ -64,7 +65,8 @@ namespace IBeaconRef.Simulator
 
                 Console.WriteLine("Store at time " + time);
                 //Print();
-                Console.ReadLine();
+                //Console.ReadLine();
+                Thread.Sleep(30 * 1000); // 30 seconds
                 time++;
             }
 
